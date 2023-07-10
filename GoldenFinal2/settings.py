@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -68,7 +69,9 @@ TEMPLATES = [
 ]
 
 
-
+LOGIN_URL = 'inicio_sesion'  # URL de inicio de sesión
+LOGIN_REDIRECT_URL = 'perfil'  # URL a la que se redirige después de iniciar sesión correctamente
+LOGOUT_REDIRECT_URL = 'inicio_sesion'
 WSGI_APPLICATION = 'GoldenFinal2.wsgi.application'
 
 
@@ -142,14 +145,18 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Configuración de redirección después de iniciar sesión
-LOGIN_REDIRECT_URL = "perfil"  # URL a la que se redirige después de iniciar sesión exitosamente
+ # URL a la que se redirige después de iniciar sesión exitosamente
 
 # Configuración de URLs de inicio de sesión y cierre de sesión
 LOGIN_URL = "inicio_sesion"  # URL a la que se redirige para iniciar sesión
 LOGOUT_URL = "cerrar_sesion"  # URL a la que se redirige para cerrar sesión
 
 # ...
-
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'app', 'static'),
+]
 
 
 MEDIA_URL = "/media/"

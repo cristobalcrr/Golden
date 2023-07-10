@@ -106,3 +106,90 @@ body {
     color: red;
     margin-top: 5px;
   }
+
+
+
+
+  .perfiles {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .perfiles h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .perfiles img {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .perfiles p {
+    margin-bottom: 10px;
+  }
+  
+  .perfiles form {
+    margin-top: 10px;
+  }
+  
+  .perfiles button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .perfiles button:hover {
+    background-color: #45a049;
+  }
+
+
+
+
+
+
+  .chat {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .chat h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .mensajes {
+    margin-bottom: 10px;
+  }
+  
+  .mensajes p {
+    margin-bottom: 5px;
+  }
+  
+  .chat form {
+    margin-top: 10px;
+  }
+  
+  .chat input[type="text"] {
+    width: 100%;
+    padding: 5px;
+  }
+  
+  .chat button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  
+  .chat button:hover {
+    background-color: #45a049;
+  }
