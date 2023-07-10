@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% load static %}
+    {% load static %}
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,16 +11,24 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
 </head>
 <body>
+    {% load static %}
+    {% extends 'core/base.html' %}
+    {% for User in User %}
+  <div class="perfil">
+    <h2>{{ User.nombre }} {{ User.apellido }}</h2>
+    <img src="{{ User.foto.url }}" alt="Foto de perfil">
+    <p>Edad: {{ User.edad }}</p>
+    <p>Descripción: {{ User.descripcion }}</p>
+    <form method="post">
+      {% csrf_token %}
+      <input type="hidden" name="like" value="{{ User.id }}">
+      <button type="submit">Like</button>
+      <input type="hidden" name="dislike" value="{{ Usero.id }}">
+      <button type="submit">Dislike</button>
+    </form>
+  </div>
+{% endfor %}
 
-  <h2>Goldenyears</h2>
-  <ul>
-    <li><a href={% url 'inicio_sesion' %}>Log in</a></li>
-    <li><a href={% url 'perfil' %}>Perfil</a></li>
-    <li><a href={% url 'perfiles' %}>Has Match!</a></li>
-    <li><a href={% url 'chat' %}>Chat</a></li>
-  </ul>
-
-  {% block content%}{% endblock %}
 
 </body>
 </html>

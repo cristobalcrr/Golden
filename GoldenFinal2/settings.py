@@ -70,7 +70,7 @@ TEMPLATES = [
 
 
 LOGIN_URL = 'inicio_sesion'  # URL de inicio de sesión
-LOGIN_REDIRECT_URL = 'perfil'  # URL a la que se redirige después de iniciar sesión correctamente
+LOGIN_REDIRECT_URL = "perfil"  # URL a la que se redirige después de iniciar sesión correctamente
 LOGOUT_REDIRECT_URL = 'inicio_sesion'
 WSGI_APPLICATION = 'GoldenFinal2.wsgi.application'
 

@@ -1,6 +1,5 @@
 from django.urls import path
-from .views import home, register, iniciar_sesion, perfil
-
+from .views import home, register, iniciar_sesion, perfil, chat
 
 
 urlpatterns = [
@@ -8,6 +7,8 @@ urlpatterns = [
     path('register/', register, name="register"),
     path('inicio_sesion/', iniciar_sesion, name='inicio_sesion'),
     path('perfil/', perfil, name='perfil'),
+    path('chat/<int:match_id>/', chat, name='chat'),
 ]
 
 
+ 
