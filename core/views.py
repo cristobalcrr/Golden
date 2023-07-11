@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .models import User, Match, Mensaje
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
-from .forms import RegistroForm, MensajeForm
+from .forms import RegistroForm, MensajeForm, PerfilForm
 from .forms import LoginForm
 
 
@@ -47,10 +47,25 @@ def register(request):
 def perfil(request):
         User = request.user
         return render(request, "core/perfil.html", {'User': User})
+
+
+#@login_required
+def editar_perfil(request):
+    usuario = request.user
+
+    if request.method == 'POST':
+        form = PerfilForm(request.POST, request.FILES, instance=usuario)
+        if form.is_valid():
+            form.save()
+            return redirect('perfil')
+    else:
+        form = PerfilForm(instance=usuario)
+
+    return render(request, 'editar_perfil.html', {'form': form})
     
     
     
-@login_required    
+#@login_required    
 def ver_perfil(request):
     usuario_actual = request.user
     User = User.objects.exclude(id=usuario_actual.id)
@@ -71,7 +86,7 @@ def ver_perfil(request):
 
 
 
-@login_required   
+#login_required   
 def chat(request, match_id):
     match = get_object_or_404(Match, id=match_id)
     mensajes = Mensaje.objects.filter(match=match).order_by('fecha')

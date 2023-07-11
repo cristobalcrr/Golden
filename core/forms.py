@@ -10,6 +10,12 @@ class RegistroForm(UserCreationForm):
         
 
 
+class PerfilForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['nombre', 'foto']
+        
+
 class LoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
